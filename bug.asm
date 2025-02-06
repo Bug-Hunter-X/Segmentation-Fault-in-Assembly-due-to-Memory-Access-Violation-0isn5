@@ -1,0 +1,3 @@
+mov eax, [ebx + ecx*4 + 0x10]
+
+This instruction attempts to access memory at an address calculated by adding the value in EBX, the product of ECX and 4, and 0x10.  If ECX is large, this can easily lead to accessing memory outside the program's allocated space, resulting in a segmentation fault. This is particularly subtle if ECX's value is not directly controlled by user input, but rather derived from calculations that might overflow or produce unexpected large values.
